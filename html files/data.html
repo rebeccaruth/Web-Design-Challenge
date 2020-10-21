@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.css">
     <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
     <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
-    <script id="_carbonads_projs" type="text/javascript" src="https://srv.carbonads.net/ads/CKYIE23N.json?segment=placement:bootswatchcom&amp;callback=_carbonads_go"></script>
+    
 
 </head>
 <body>
 <!--Navbar-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="C:\Users\ruth0\OneDrive\Desktop\Web-Design-Challenge\index.html">Weather Data</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -22,13 +22,13 @@
             <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="C:\Users\ruth0\OneDrive\Desktop\Web-Design-Challenge\index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Comparison</a>
+                <a class="nav-link" href="C:\Users\ruth0\OneDrive\Desktop\Web-Design-Challenge\comparison.html">Comparison</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Data</a>
+                <a class="nav-link" href="C:\Users\ruth0\OneDrive\Desktop\Web-Design-Challenge\data.html">Data</a>
                 </li>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
@@ -43,14 +43,39 @@
             </div>
         </nav>
     </header>
-   
+    <h1>Data</h1>
+    <p>The followingtable includes all of the data used for plotting during this project.</p>
 
+    <!--Table-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+    <script>
+        function arrayToTable(tableData) {
+            var table = $('<table></table>');
+            $(tableData).each(function (i, rowData) {
+                var row = $('<tr></tr>');
+                $(rowData).each(function (j, cellData) {
+                    row.append($('<td>'+cellData+'</td>'));
+                });
+                table.append(row);
+            });
+            return table;
+        }
+    
+        $.ajax({
+            type: "GET",
+            url: "C:\Users\ruth0\OneDrive\Desktop\Web-Design-Challenge\Resources\cities.csv",
+            success: function (data) {
+                $('body').append(arrayToTable(Papa.parse(data).data));
+            }
+        });
+    </script>
+        
     <script src="https://bootswatch.com/_vendor/jquery/dist/jquery.min.js"></script>
     <script src="https://bootswatch.com/_vendor/popper.js/dist/umd/popper.min.js"></script>
     <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://bootswatch.com/_assets/js/custom.js"></script>
-<!-- jQuery CDN -->    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<!-- Bootstrap CDN -->    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+    <!-- jQuery CDN -->    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Bootstrap CDN -->    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </body>
+    </html>
